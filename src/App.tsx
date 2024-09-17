@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import {StudentComponent} from './components/StudentComponent';
 import {CarComponent} from './components/CarComponent';
+import {Button} from './components/Button';
 
 export type Students = {
     id: number;
@@ -29,10 +30,28 @@ function App() {
         {manufacturer: 'Mercedes', model: 'e63s'},
         {manufacturer: 'Audi', model: 'rs6'}
     ]
+
+    const onClickHandler = (value: string) => {
+        console.log(value)
+    }
+
     return (
         <div className="App">
             <StudentComponent students={students}/>
             <CarComponent cars={topCars}/>
+
+            <div>
+                <div>
+                    <Button callback={() => onClickHandler('Igor')}
+                            text={'Subscribe'}/>
+                </div>
+                <div>
+                    <Button callback={() => onClickHandler('Ivan')}
+                            text={'Subscribe'}/>
+                </div>
+
+            </div>
+
         </div>
     );
 }
