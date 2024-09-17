@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {StudentComponent} from './components/StudentComponent';
 import {CarComponent} from './components/CarComponent';
@@ -35,6 +35,8 @@ function App() {
         console.log(value)
     }
 
+    const [count, setCount] = useState<number>(0)
+
     return (
         <div className="App">
             <StudentComponent students={students}/>
@@ -50,6 +52,10 @@ function App() {
                             text={'Subscribe'}/>
                 </div>
 
+            </div>
+
+            <div>
+                <Button callback={() => setCount(count + 1)} text={'Add'}/>: {count}
             </div>
 
         </div>
