@@ -3,6 +3,7 @@ import './App.css';
 import {StudentComponent} from './components/StudentComponent';
 import {CarComponent} from './components/CarComponent';
 import {Button} from './components/Button';
+import {MoneyComponent} from './components/MoneyComponent';
 
 export type Students = {
     id: number;
@@ -13,6 +14,12 @@ export type Students = {
 export type Cars = {
     manufacturer: string
     model: string
+}
+
+export type Money = {
+    banknots: 'Dollars' | 'RUBLS'
+    value: number
+    number: string
 }
 
 function App() {
@@ -37,6 +44,18 @@ function App() {
 
     const [count, setCount] = useState<number>(0)
 
+    const money: Money[] = [
+        {banknots: 'Dollars', value: 100, number: ' a1234567890'},
+        {banknots: 'Dollars', value: 50, number: ' z1234567890'},
+        {banknots: 'RUBLS', value: 100, number: ' w1234567890'},
+        {banknots: 'Dollars', value: 100, number: ' e1234567890'},
+        {banknots: 'Dollars', value: 50, number: ' c1234567890'},
+        {banknots: 'RUBLS', value: 100, number: ' r1234567890'},
+        {banknots: 'Dollars', value: 50, number: ' x1234567890'},
+        {banknots: 'RUBLS', value: 50, number: ' v1234567890'},
+    ]
+
+
     return (
         <div className="App">
             <StudentComponent students={students}/>
@@ -57,6 +76,8 @@ function App() {
             <div>
                 <Button callback={() => setCount(count + 1)} text={'Add'}/>: {count}
             </div>
+
+            <MoneyComponent money={money}/>
 
         </div>
     );
