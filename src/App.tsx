@@ -1,26 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {StudentComponent} from './components/StudentComponent';
+import {CarComponent} from './components/CarComponent';
+
+export type Students = {
+    id: number;
+    name: string;
+    age: number;
+}
+
+export type Cars = {
+    manufacturer: string
+    model: string
+}
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const students: Students[] = [
+        {id: 1, name: 'Igor', age: 20},
+        {id: 2, name: 'Svetlana', age: 27},
+        {id: 3, name: 'Ann', age: 45},
+        {id: 4, name: 'Max', age: 17},
+        {id: 5, name: 'Nick', age: 33},
+    ]
+
+    const topCars: Cars[] = [
+        {manufacturer: 'BMW', model: 'm5cs'},
+        {manufacturer: 'Mercedes', model: 'e63s'},
+        {manufacturer: 'Audi', model: 'rs6'}
+    ]
+    return (
+        <div className="App">
+            <StudentComponent students={students}/>
+            <CarComponent cars={topCars}/>
+        </div>
+    );
 }
 
 export default App;
